@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "STEMHub Uganda media manifest. Edit this file to update images across the site. Keys are stable identifiers — the app reactively updates when this file changes.",
+    "basePath": "/media"
+  },
+  "site": {
+    "logo": {
+      "src": "/media/logo.svg",
+      "alt": "STEMHub Uganda logo"
+    },
+    "ogImage": {
+      "src": "/media/og-image.jpg",
+      "alt": "STEMHub Uganda"
+    }
+  },
+  "home": {
+    "hero": {
+      "src": "/media/home-hero.avif",
+      "alt": "Students engaged in hands-on STEM learning at STEMHub Uganda"
+    },
+    "impactPhoto": {
+      "src": "/media/home-impact.jpg",
+      "alt": "STEMHub community outreach in a Ugandan school"
+    }
+  },
+  "about": {
+    "teamPhoto": {
+      "src": "/media/about-team.jpg",
+      "alt": "The STEMHub Uganda team"
+    },
+    "storyPhoto": {
+      "src": "/media/about-story.jpg",
+      "alt": "STEMHub Uganda founding story"
+    }
+  },
+  "programs": {
+    "codelab": {
+      "cover": {
+        "src": "/media/home-hero.avif",
+        "alt": "Students coding at a CodeLab session"
+      },
+      "gallery": []
+    },
+    "stemlab": {
+      "cover": {
+        "src": "/media/program-stemlab.jpg",
+        "alt": "STEMLab 3D simulation interface showing human anatomy"
+      },
+      "gallery": []
+    },
+    "innovation-studio": {
+      "cover": {
+        "src": "/media/program-innovation-studio.jpg",
+        "alt": "Students prototyping inventions at the Innovation Studio"
+      },
+      "gallery": []
+    },
+    "stem360": {
+      "cover": {
+        "src": "/media/program-stem360.jpg",
+        "alt": "STEM360 community outreach program in action"
+      },
+      "gallery": []
+    }
+  },
+  "graphics": {
+    "patternDots": "/media/graphics/pattern-dots.svg",
+    "patternGrid": "/media/graphics/pattern-grid.svg",
+    "decorCircle": "/media/graphics/decor-circle.svg"
+  }
+}

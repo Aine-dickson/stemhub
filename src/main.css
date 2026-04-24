@@ -1,0 +1,43 @@
+
+@import "tailwindcss";
+
+/* ── Google Fonts ─────────────────────────────────────────────
+   DM Serif Display  → headings (.font-display)
+   Outfit            → body / UI
+   ──────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@theme {
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-sans: 'Outfit', system-ui, sans-serif;
+
+    /* Brand colours available as Tailwind utilities */
+    --color-brand-amber: #f59e0b;
+    --color-brand-dark: #0c0a09;
+    /* stone-950 */
+}
+
+/* Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    color: #1c1917;
+    /* stone-900 */
+}
+
+/* Font utility */
+.font-display {
+    font-family: var(--font-display);
+}

@@ -1,0 +1,5 @@
+# public/_redirects
+# Required for Cloudflare Pages to serve the Vue SPA on all routes.
+# Without this, direct navigation to /about or /programs/codelab returns 404.
+
+/*    /index.html    200
