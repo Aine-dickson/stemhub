@@ -1,11 +1,15 @@
 <script setup lang="ts">
     // src/components/layout/AppNav.vue
-    import { ref, onMounted, onUnmounted } from 'vue'
+    import { computed, ref, onMounted, onUnmounted } from 'vue'
     import { useRoute } from 'vue-router'
+    import MediaImage from '../ui/MediaImage.vue'
+    import { useMedia } from '@/composables/useMedia'
 
     const route = useRoute()
+    const { mediaSrc } = useMedia()
     const menuOpen = ref(false)
     const scrolled = ref(false)
+    const isTransparentNav = computed(() => route.path === '/' && !scrolled.value)
 
     const links = [
         { to: '/', label: 'Home' },
@@ -25,18 +29,15 @@
 <template>
     <header :class="[
         'fixed top-0 inset-x-0 z-50 transition-all duration-300',
-        $route.path === '/' && !scrolled ? 'bg-transparent' : 'bg-stone-950/95 backdrop-blur-sm shadow-md',
+        isTransparentNav ? 'bg-transparent' : 'bg-slate-200/95 backdrop-blur-sm shadow-md',
     ]">
         <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
             <!-- Logo -->
             <RouterLink to="/" class="flex items-center gap-2.5 group" @click="menuOpen = false">
-                <span
-                    class="w-8 h-8 rounded-sm bg-amber-400 flex items-center justify-center text-stone-950 font-black text-sm leading-none select-none">
-                    SH
-                </span>
-                <span class="font-display text-white text-lg font-semibold tracking-tight">
-                    STEM<span class="text-amber-400">Hub</span>
-                </span>
+                <div class="h-14">
+                    <MediaImage :src="mediaSrc('site.logo')" alt="Logo"
+                        class="w-full h-full group-hover:brightness-110 transition" />
+                </div>
             </RouterLink>
 
             <!-- Desktop links -->
@@ -46,7 +47,9 @@
                         'px-3 py-1.5 rounded text-sm font-medium transition-colors',
                         route.path === link.to
                             ? 'text-amber-400'
-                            : 'text-stone-300 hover:text-white',
+                            : isTransparentNav
+                                ? 'text-white hover:text-amber-300'
+                                : 'text-stone-800 hover:text-stone-950',
                     ]">
                         {{ link.label }}
                     </RouterLink>
@@ -60,8 +63,10 @@
             </ul>
 
             <!-- Mobile burger -->
-            <button class="md:hidden text-white p-1.5" :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
-                @click="menuOpen = !menuOpen">
+            <button :class="[
+                'md:hidden p-1.5 transition-colors',
+                isTransparentNav ? 'text-white' : 'text-stone-900',
+            ]" :aria-label="menuOpen ? 'Close menu' : 'Open menu'" @click="menuOpen = !menuOpen">
                 <svg v-if="!menuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -78,7 +83,7 @@
                     <li v-for="link in links" :key="link.to">
                         <RouterLink :to="link.to" :class="[
                             'block px-3 py-2.5 rounded text-sm font-medium',
-                            route.path === link.to ? 'text-amber-400 bg-stone-900' : 'text-stone-300',
+                            route.path === link.to ? 'text-amber-400 bg-stone-900' : 'text-stone-600',
                         ]" @click="menuOpen = false">
                             {{ link.label }}
                         </RouterLink>

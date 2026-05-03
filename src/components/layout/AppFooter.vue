@@ -1,5 +1,9 @@
 <script setup lang="ts">
-    // src/components/layout/AppFooter.vue
+    import MediaImage from '../ui/MediaImage.vue';
+    import { useMedia } from '@/composables/useMedia';
+
+    const { mediaSrc } = useMedia()
+
     const programs = [
         { id: 'codelab', name: 'CodeLab' },
         { id: 'stemlab', name: 'STEMLab' },
@@ -12,9 +16,9 @@
 
 <template>
     <footer class="bg-stone-950 border-t border-stone-800 mt-auto">
-        <div class="max-w-6xl mx-auto px-5 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="max-w-6xl mx-auto px-5 py-14 grid grid-cols-2 md:grid-cols-3 gap-10">
             <!-- Brand -->
-            <div class="md:col-span-1">
+            <div class="md:col-span-1 col-span-2">
                 <div class="flex items-center gap-2.5 mb-3">
                     <span
                         class="w-7 h-7 rounded-sm bg-amber-400 flex items-center justify-center text-stone-950 font-black text-xs">SH</span>

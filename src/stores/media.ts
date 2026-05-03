@@ -23,15 +23,19 @@ export const useMediaStore = defineStore('media', () => {
         }
     }
 
-    function get(path: string): MediaAsset | null {
+    function getNode(path: string): unknown {
         if (!manifest.value) return null
 
-        const asset = path.split('.').reduce<unknown>((current, key) => {
+        return path.split('.').reduce<unknown>((current, key) => {
             if (current && typeof current === 'object') {
                 return (current as Record<string, unknown>)[key] ?? null
             }
             return null
         }, manifest.value)
+    }
+
+    function get(path: string): MediaAsset | null {
+        const asset = getNode(path)
 
         if (!asset || typeof asset !== 'object') return null
 
@@ -51,5 +55,5 @@ export const useMediaStore = defineStore('media', () => {
 
     const isReady = computed(() => manifest.value !== null && !loading.value)
 
-    return { manifest, loading, error, isReady, load, get, src, alt }
+    return { manifest, loading, error, isReady, load, getNode, get, src, alt }
 })

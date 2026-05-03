@@ -5,6 +5,9 @@
     const form = ref({ name: '', email: '', organisation: '', message: '', subject: 'general' })
     const submitted = ref(false)
     const submitting = ref(false)
+    const errorMessage = ref<string | null>(null)
+
+    const CONTACT_ENDPOINT = (import.meta.env.VITE_CONTACT_ENDPOINT as string) || '/api/contact'
 
     const subjects = [
         { value: 'general', label: 'General Enquiry' },
@@ -15,13 +18,47 @@
     ]
 
     async function handleSubmit() {
-        // Placeholder: wire to Formspree, Netlify Forms, or your own endpoint.
-        // For Cloudflare Pages static deployment, use Formspree:
-        // Set action="https://formspree.io/f/YOUR_ID" and method="POST"
+        errorMessage.value = null
+        // basic client-side validation
+        if (!form.value.name || !form.value.email || !form.value.message) {
+            errorMessage.value = 'Please complete the required fields.'
+            return
+        }
+
         submitting.value = true
-        await new Promise((r) => setTimeout(r, 800)) // Simulate request
-        submitted.value = true
-        submitting.value = false
+
+        try {
+            const payload = {
+                name: form.value.name,
+                email: form.value.email,
+                organisation: form.value.organisation,
+                subject: form.value.subject,
+                message: form.value.message,
+            }
+
+            const res = await fetch(CONTACT_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            })
+
+            if (!res.ok) {
+                const body = await res.json().catch(() => ({}))
+                errorMessage.value = body?.error || `Failed to send message (${res.status})`
+                submitting.value = false
+                return
+            }
+
+            submitted.value = true
+        } catch (err) {
+            errorMessage.value = (err as Error).message || 'Network error'
+        } finally {
+            submitting.value = false
+        }
+    }
+
+    function resetForm() {
+        form.value = { name: '', email: '', organisation: '', message: '', subject: 'general' }
     }
 
     const contacts = [
@@ -56,7 +93,7 @@
                     <div class="space-y-5">
                         <div v-for="c in contacts" :key="c.label">
                             <p class="text-sm font-semibold uppercase tracking-widest text-stone-600 mb-0.5">{{ c.label
-                                }}</p>
+                            }}</p>
                             <a v-if="c.href" :href="c.href"
                                 class="text-stone-900 cursor-pointer hover:text-amber-600 text-sm transition-colors">
                                 {{ c.value }}
@@ -82,12 +119,11 @@
                         <p class="text-stone-500 text-sm">We'll be in touch shortly. Thank you for reaching out to
                             STEMHub Uganda.</p>
                         <button class="mt-2 cursor-pointer text-sm text-stone-500 underline hover:text-stone-700"
-                            @click="submitted = false; form = { name: '', email: '', organisation: '', message: '', subject: 'general' }">
+                            @click="submitted = false; resetForm()">
                             Send another message
                         </button>
                     </div>
 
-                    <!-- NOTE: For Cloudflare Pages, replace @submit.prevent with a real Formspree action -->
                     <div v-else class="space-y-5">
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
@@ -140,12 +176,11 @@
 
                         <button :disabled="submitting"
                             class="px-6 py-3 bg-stone-950 text-white font-semibold rounded text-sm hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            :class="submitting ? 'cursor-not-allowed' : 'cursor-pointer'"
-                            @click="handleSubmit">
+                            :class="submitting ? 'cursor-not-allowed' : 'cursor-pointer'" @click="handleSubmit">
                             {{ submitting ? 'Sending…' : 'Send Message' }}
                         </button>
+                        <p v-if="errorMessage" class="text-red-600 text-sm">{{ errorMessage }}</p>
                         <p class="text-stone-600 text-xs">
-                            <!-- Replace the placeholder submit handler with Formspree for real deployment -->
                             We respond within 3 working days.
                         </p>
                     </div>

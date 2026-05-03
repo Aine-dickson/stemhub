@@ -1,72 +1,188 @@
 {
-  "_meta": {
-    "version": "1.0.0",
-    "description": "STEMHub Uganda media manifest. Edit this file to update images across the site. Keys are stable identifiers — the app reactively updates when this file changes.",
-    "basePath": "/media"
-  },
-  "site": {
-    "logo": {
-      "src": "/media/logo.svg",
-      "alt": "STEMHub Uganda logo"
+    "_meta": {
+        "version": "1.0.0",
+        "description": "STEMHub Uganda media manifest. Edit this file to update images across the site. Keys are stable identifiers — the app reactively updates when this file changes.",
+        "basePath": "/media"
     },
-    "ogImage": {
-      "src": "/media/og-image.jpg",
-      "alt": "STEMHub Uganda"
+    "site": {
+        "logo": {
+            "src": "/media/stem_hub_logo.png",
+            "alt": "STEMHub Uganda logo with science, technology, engineering, and mathematics icons"
+        },
+        "ogImage": {
+            "src": "/media/og-image.jpg",
+            "alt": "Students and mentors taking part in STEMHub Uganda hands-on learning activities"
+        }
+    },
+    "home": {
+        "hero": {
+            "src": "/media/hero.JPG",
+            "alt": "CodeLab mentor and students after session"
+        },
+        "impactPhoto": {
+            "src": "/media/science_fair_outrich.JPG",
+            "alt": "Students discussing a handmade rain-sensor house prototype at a school STEM fair"
+        }
+    },
+    "about": {
+        "teamPhoto": {
+            "src": "/media/team.JPG",
+            "alt": "Three STEMHub Uganda facilitators standing in front of a CodeLab banner"
+        },
+        "storyPhoto": {
+            "src": "/media/about_story.JPG",
+            "alt": "A STEMHub facilitator speaking to learners during a classroom session"
+        }
+    },
+    "programs": {
+        "codelab": {
+            "cover": {
+                "src": "/media/hero.JPG",
+                "alt": "CodeLab mentors and student posing after a session"
+            },
+            "gallery": [
+                {
+                    "src": "/media/codelab-1.JPG",
+                    "alt": "A CodeLab instructor teaching HTML tags on a whiteboard during class"
+                },
+                {
+                    "src": "/media/codelab-2.JPG",
+                    "alt": "A mentor guiding students in a CodeLab session in a classroom"
+                },
+                {
+                    "src": "/media/codelab-3.JPG",
+                    "alt": "The trainer teaching on client-server concepts in CodeLab session"
+                },
+                {
+                    "src": "/media/codelab-4.JPG",
+                    "alt": "Two students collaborating at a laptop during a CodeLab workshop"
+                },
+                {
+                    "src": "/media/codelab-5.JPG",
+                    "alt": "Three CodeLab facilitators posing beside the program banner"
+                },
+                {
+                    "src": "/media/codelab-6.JPG",
+                    "alt": "The trainer during a CodeLab session explaining concepts with a projected slide"
+                },
+                {
+                    "src": "/media/codelab-7.JPG",
+                    "alt": "A group of students posing for a photo after a CodeLab session"
+                },
+                {
+                    "src": "/media/codelab-8.JPG",
+                    "alt": "Learners and the trainer after a CodeLab session"
+                },
+                {
+                    "src": "/media/codelab-9.JPG",
+                    "alt": "Two learners posing beside a CodeLab banner with coding lesson posters"
+                },
+                {
+                    "src": "/media/codelab-10.JPG",
+                    "alt": "Learners seated in a classroom listening during a CodeLab session"
+                },
+                {
+                    "src": "/media/codelab-11.JPG",
+                    "alt": "A CodeLab instructor presenting a lesson with projected slides on a whiteboard"
+                }
+            ]
+        },
+        "stemlab": {
+            "cover": {
+                "src": "/media/stemlab-1.jpeg",
+                "alt": "STEMLab virtual lab interface showing an annotated 3D model of a skull and jaw"
+            },
+            "gallery": [
+                {
+                    "src": "/media/stemlab-1.jpeg",
+                    "alt": "STEMLab screen with controls and labels for exploring skull anatomy in 3D"
+                }
+            ]
+        },
+        "innovation-studio": {
+            "cover": {
+                "src": "/media/innovation-1.JPG",
+                "alt": "Students presenting a handmade model house prototype at Innovation Studio"
+            },
+            "gallery": [
+                {
+                    "src": "/media/innovation-1.JPG",
+                    "alt": "Students discussing a rain-sensor house prototype at a STEM exhibition"
+                },
+                {
+                    "src": "/media/innovation-2.JPG",
+                    "alt": "A student presenting a smart-city model with labeled buildings and roads"
+                },
+                {
+                    "src": "/media/innovation-3.JPG",
+                    "alt": "Students discussing components at an Innovation Studio project table"
+                },
+                {
+                    "src": "/media/innovation-4.JPG",
+                    "alt": "A learner asking questions about a prototype during Innovation Studio presentations"
+                },
+                {
+                    "src": "/media/innovation-5.JPG",
+                    "alt": "A learner presenting a model display with plants and handcrafted structures"
+                },
+                {
+                    "src": "/media/innovation-6.JPG",
+                    "alt": "A student explaining a smart-city prototype during Innovation Studio presentations"
+                },
+                {
+                    "src": "/media/innovation-7.JPG",
+                    "alt": "Learners gathered around a presentation table discussing their designs"
+                }
+            ]
+        },
+        "stem360": {
+            "cover": {
+                "src": "/media/stem360-1.JPG",
+                "alt": "Three learners connecting wires on a small robot car during a STEM360 workshop"
+            },
+            "gallery": [
+                {
+                    "src": "/media/stem360-1.JPG",
+                    "alt": "Three learners connecting wires on a small robot car during a STEM360 workshop"
+                },
+                {
+                    "src": "/media/stem360-2.JPG",
+                    "alt": "Learners assembling an LED pattern board together during a STEM360 lab activity"
+                },
+                {
+                    "src": "/media/stem360-3.png",
+                    "alt": "Assembled four-wheel robot car platform during STEM360"
+                },
+                {
+                    "src": "/media/stem360-4.png",
+                    "alt": "Close-up of a cardboard LED display spelling STEAM"
+                },
+                {
+                    "src": "/media/stem360-5.png",
+                    "alt": "Learners assembling an LED pattern board together during a STEM360 activity"
+                },
+                {
+                    "src": "/media/stem360-6.JPG",
+                    "alt": "Three learners placing LED bulbs on a cardboard circuit project"
+                },
+                {
+                    "src": "/media/stem360-7.JPG",
+                    "alt": "Students using tools and a smartphone while assembling an electronics prototype"
+                },
+                {
+                    "src": "/media/stem360-8.png",
+                    "alt": "Instructor explainig a circuit to a student during a STEM360 session"
+                },
+                {
+                    "src": "/media/stem360-9.png",
+                    "alt": "Close-up of a learner tightening a screw on a small robot chassis"
+                }
+            ]
+        }
+    },
+    "graphics": {
+        "patternDots": "/media/graphics/pattern-dots.svg",
+        "patternGrid": "/media/graphics/pattern-grid.svg",
+        "decorCircle": "/media/graphics/decor-circle.svg"
     }
-  },
-  "home": {
-    "hero": {
-      "src": "/media/home-hero.avif",
-      "alt": "Students engaged in hands-on STEM learning at STEMHub Uganda"
-    },
-    "impactPhoto": {
-      "src": "/media/home-impact.jpg",
-      "alt": "STEMHub community outreach in a Ugandan school"
-    }
-  },
-  "about": {
-    "teamPhoto": {
-      "src": "/media/about-team.jpg",
-      "alt": "The STEMHub Uganda team"
-    },
-    "storyPhoto": {
-      "src": "/media/about-story.jpg",
-      "alt": "STEMHub Uganda founding story"
-    }
-  },
-  "programs": {
-    "codelab": {
-      "cover": {
-        "src": "/media/home-hero.avif",
-        "alt": "Students coding at a CodeLab session"
-      },
-      "gallery": []
-    },
-    "stemlab": {
-      "cover": {
-        "src": "/media/program-stemlab.jpg",
-        "alt": "STEMLab 3D simulation interface showing human anatomy"
-      },
-      "gallery": []
-    },
-    "innovation-studio": {
-      "cover": {
-        "src": "/media/program-innovation-studio.jpg",
-        "alt": "Students prototyping inventions at the Innovation Studio"
-      },
-      "gallery": []
-    },
-    "stem360": {
-      "cover": {
-        "src": "/media/program-stem360.jpg",
-        "alt": "STEM360 community outreach program in action"
-      },
-      "gallery": []
-    }
-  },
-  "graphics": {
-    "patternDots": "/media/graphics/pattern-dots.svg",
-    "patternGrid": "/media/graphics/pattern-grid.svg",
-    "decorCircle": "/media/graphics/decor-circle.svg"
-  }
 }

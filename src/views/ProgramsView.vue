@@ -13,7 +13,7 @@
                 <span class="inline-block text-xs font-semibold uppercase tracking-widest text-amber-400 mb-4">What We
                     Do</span>
                 <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
-                    Four programs built for Uganda's learners.
+                    Programs built for Uganda's learners.
                 </h1>
                 <p class="text-stone-400 mt-4 max-w-xl text-sm leading-relaxed">
                     Each STEMHub program addresses a distinct gap in STEM education — from coding skills and visual

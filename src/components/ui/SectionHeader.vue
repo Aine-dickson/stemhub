@@ -10,12 +10,11 @@
 </script>
 
 <template>
-    <div :class="['mb-10', align === 'center' && 'text-center']">
-        <span v-if="label" class="inline-block uppercase tracking-widest mb-3"
-            :class="[
-                light ? 'text-amber-400 font-semibold text-xs' : 'text-amber-500 font-bold text-sm',
+    <div v-in-view :class="['mb-10', align === 'center' && 'text-center']">
+        <span v-if="label" class="inline-block uppercase tracking-widest mb-3" :class="[
+            light ? 'text-amber-400 font-semibold text-xs' : 'text-amber-500 font-bold text-sm',
 
-            ]">
+        ]">
             {{ label }}
         </span>
         <h2 :class="[
